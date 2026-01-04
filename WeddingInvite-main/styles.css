@@ -1,0 +1,1379 @@
+
+:root{
+    --ink:#1E2742;
+    --textgray:#767B88;
+    --red:#9A2143;
+    --darkyellow:#BFA054;
+    --lightyellow:#EDD498;
+    --bgyellow:#FBF8F2;
+    --bggray:#F6F6F6;
+    --stroke:#F0F0F0;
+    --paper:#FFFFFF;
+    --shadow:0 5px 20px rgba(0,0,0,.05);
+    --radius:12px;
+}
+
+body {
+    background-color: #fff2d3;
+    margin: 0;
+    font-family: "Kantumruy Pro", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: var(--ink);
+}
+
+/* Desktop overlay images */
+.desktop-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 40vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    display: none;
+}
+
+.desktop-overlay--left {
+    left: 0;
+    background-image: url('assets/desktop-overlay.png');
+}
+
+.desktop-overlay--right {
+    right: 0;
+    background-image: url('assets/desktop-overlay.png');
+    transform: scaleX(-1); /* Flip the right image horizontally */
+}
+
+/* Show overlays only on desktop */
+@media (min-width: 1024px) {
+    .desktop-overlay {
+        display: block;
+    }
+}
+
+/* Mobile viewport container */
+.mobile-viewport {
+    background-color: var(--paper);
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    box-shadow: var(--shadow);
+    padding-bottom: -80px;
+}
+
+/* Desktop styles for mobile viewport */
+@media (min-width: 1024px) {
+    .mobile-viewport {
+        width: 400px;
+        margin: 0 auto;
+        min-height: 100vh;
+        position: relative;
+        box-shadow: var(--shadow);
+    }
+}
+
+/* Header Section */
+.header {
+    position: relative;
+    width: 100%;
+    background-color: var(--paper);
+    overflow: hidden;
+    background-image: url('assets/header-container.png');
+    background-size: contain;
+    background-position: top center;
+    height: 180px;
+    background-repeat: no-repeat;
+    padding-bottom: 75%; /* Adjusted for better aspect ratio to match the design */
+}
+
+
+/* Header top row */
+.header__top {
+    position: relative;
+    top: 20px;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 24px 24px 0;
+}
+
+/* Ganesha icon */
+.header__ganesha {
+    width: 48px;
+    height: 48px;
+}
+
+.ganesha-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Date */
+.header__date {
+    color: var(--red);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: capitalize;
+    font-family: "Kantumruy Pro", sans-serif;
+}
+
+/* Couple names */
+.header__names {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    padding: 24px 24px 8px;
+    margin-top: 16px;
+    margin-bottom: 0;
+}
+
+.names__big {
+    font-family: "DM Serif Display", serif;
+    font-size: 52px;
+    line-height: 1;
+    margin: 0;
+    color: var(--red);
+    font-weight: 400;
+}
+
+.names__weds {
+    font-size: 24px;
+    color: var(--textgray);
+    text-align: left;
+    font-family: "DM Serif Display", serif;
+    margin: 8px 0;
+}
+
+/* Hello Section */
+.hello-section {
+    background-color: var(--paper);
+    padding: 8px 24px 16px;
+    margin-top: -8px;
+}
+
+.hello__greeting {
+    font-family: "Comforter", cursive;
+    font-size: 40px;
+    color: var(--ink);
+    font-weight: 400;
+}
+
+.hello__content {
+    max-width: 100%;
+}
+
+.hello__families {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 4px 0;
+    line-height: 1.5;
+}
+
+.hello__invitation {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--textgray);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Bride and Groom Section */
+.couple-section {
+    background-color: var(--paper);
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.couple-card {
+    background-color: var(--bgyellow);
+    border-radius: var(--radius);
+    padding: 16px;
+    position: relative;
+}
+
+.card__title {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--red);
+    margin-bottom: 4px;
+}
+
+.card__name {
+    font-family: "DM Serif Display", serif;
+    font-size: 28px;
+    color: var(--ink);
+    margin-bottom: 8px;
+}
+
+.card__social {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.card__social a {
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.card__social a:hover {
+    transform: translateY(-2px);
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--paper);
+    border-radius: var(--radius);
+    border-color: var(--stroke);
+    padding: 8px;
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.2s ease;
+}
+
+.social-icon:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.social-icon--web {
+    padding: 8px;
+}
+
+.social-icon--web img {
+    transform: none;
+    transform-origin: center;
+}
+
+.card__photo {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 108px;
+    height: 108px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-photo--bride {
+    object-position: top;
+}
+
+.profile-photo--groom {
+    transform: scale(1.3);
+    transform-origin: center;
+}
+
+.card__details {
+    margin-top: 12px;
+}
+
+.detail-line {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 14px;
+    color: var(--textgray);
+    line-height: 1.5;
+    margin: 0 0 6px 0;
+}
+
+.detail-line strong {
+    color: var(--ink);
+    font-weight: 700;
+}
+
+.with-separator {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.with-text {
+    font-family: "Comforter", cursive;
+    font-size: 24px;
+    color: var(--ink);
+}
+
+/* Divider */
+.divider {
+    background-color: transparent;
+    padding: 20px 16px;
+    text-align: center;
+}
+
+.divider-icon {
+    width: 100%;
+    height: auto;
+}
+
+
+/* Details Section */
+.details-section {
+    background-color: var(--paper);
+    padding: 20px 16px;
+}
+
+/* Countdown Section */
+.countdown-section {
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.countdown__title {
+    font-family: "Comforter", cursive;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 20px 0;
+    text-align: left;
+}
+
+.countdown__timer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.timer__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 50px;
+}
+
+.timer__number {
+    font-family: "DM Serif Display", serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--red);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.timer__label {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    text-align: center;
+}
+
+.timer__separator {
+    font-family: "DM Serif Display", serif;
+    font-size: 36px;
+    color: var(--red);
+    margin: 0 4px;
+    align-self: flex-start;
+    padding-top: 0;
+}
+
+.calendar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 328px;
+    padding: 14px 16px;
+    background-color: var(--ink);
+    color: var(--paper);
+    border: none;
+    border-radius: var(--radius);
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    margin: 0 auto;
+}
+
+.calendar-btn:hover {
+    background-color: var(--red);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.calendar-btn:active {
+    background-color: #1a1f2e; /* 10% darker than var(--ink) */
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Venue Section */
+.venue-section {
+    margin-top: 0;
+    padding-top: 40px;
+}
+
+.venue__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.venue__address {
+    flex: 1;
+}
+
+.venue__title {
+    font-family: "Comforter", cursive;
+    font-size: 40px;
+    font-weight: 400;
+    color: var(--ink);
+    margin: 0 0 28px 0;
+    line-height: 1.1;
+}
+
+.venue__address p {
+    font-family: "DM Serif Display", serif;
+    font-size: 14px;
+    color: var(--textgray);
+    margin: 0 0 4px 0;
+    line-height: 1.4;
+}
+
+.venue__card {
+    background-color: var(--paper);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    max-width: 200px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.venue__card.heart-animation {
+    animation: heartBeat 0.6s ease-in-out;
+}
+
+.venue__image {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+}
+
+.hotel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.venue__name-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.favorite-btn {
+    width: 20px;
+    height: 20px;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+.favorite-btn:hover {
+    transform: scale(1.1);
+}
+
+.favorite-btn svg {
+    color: var(--ink);
+    stroke-width: 2;
+}
+
+.favorite-btn.favorited svg {
+    fill: var(--red);
+    color: var(--red);
+}
+
+.venue__info {
+    padding: 8px;
+    position: relative;
+}
+
+.venue__name {
+    font-family: "DM Serif Display", serif;
+    font-size: 16px;
+    color: var(--ink);
+    margin: 0;
+    font-weight: 400;
+}
+
+.venue__map {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 12px;
+    color: var(--ink);
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+
+.map-icon {
+    width: 12px;
+    height: 12px;
+    object-fit: contain;
+}
+
+.venue__location-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 328px;
+    padding: 14px 16px;
+    background-color: var(--ink);
+    color: var(--paper);
+    border: none;
+    border-radius: var(--radius);
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    margin: 0 auto;
+}
+
+.venue__location-cta:hover {
+    background-color: var(--red);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.venue__location-cta:active {
+    background-color: #1a1f2e;
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.location-icon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+/* Heart Beat Animation */
+@keyframes heartBeat {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.05);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    75% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Events Section */
+.events-section {
+    background-color: var(--paper);
+    padding: 20px 16px;
+}
+
+.events__title {
+    font-family: "Comforter", cursive;
+    font-size: 32px;
+    color: var(--ink);
+    margin: 0 0 24px 0;
+    text-align: left;
+}
+
+.events__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.event-card {
+    display: flex;
+    align-items: flex-start;
+    padding: 16px;
+    border: none;
+    border-radius: var(--radius);
+    background-color: var(--bggray);
+    position: relative;
+    overflow: hidden;
+    min-height: 140px;
+}
+
+/* Add elliptical curve at bottom */
+.event-card::after {
+    content: '';
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-66%);
+    width: 540px;
+    height: 66px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.event__number {
+    font-family: "DM Serif Display", serif;
+    font-size: 14px;
+    color: var(--ink);
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.event__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    padding-right: 130px;
+    min-width: 0;
+}
+
+.event__header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 2;
+}
+
+.event__name {
+    font-family: "DM Serif Display", serif;
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0 0 8px 0;
+    color: var(--ink);
+    line-height: 1.1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.event__icon {
+    width: 120px;
+    height: 100px;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    right: 16px;
+    z-index: 1;
+    flex-shrink: 0;
+}
+
+.event__details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 4px;
+}
+
+.event__datetime {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    font-weight: 400;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.event__datetime strong {
+    font-weight: 700;
+}
+
+.event__followup {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    font-weight: 400;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.event-card:nth-child(1) .event__followup {
+    text-align: left;
+    margin-top: 8px;
+    padding-left: 0;
+}
+
+.event__followup:contains("Followed by lunch") {
+    text-align: left;
+    margin-top: 8px;
+}
+
+.event-card:nth-child(2) .event__followup,
+.event-card:nth-child(4) .event__followup {
+    text-align: left;
+    margin-top: 8px;
+}
+
+.event-card:nth-child(3) .event__followup,
+.event-card:nth-child(5) .event__followup {
+    text-align: left;
+    margin-top: 8px;
+}
+
+.event__name--haldi {
+    color: #FFBCE4;
+}
+
+/* Event-specific colors and backgrounds */
+.event-card:nth-child(1) {
+    background-color: #F7FFE5; /* Light green for Tilak & Mehndi */
+}
+
+.event-card:nth-child(1) .event__name {
+    color: #E46B00; /* Orange for Tilak */
+}
+
+.event__name--green {
+    color: #3F8300; /* Green color for & Mehndi */
+    display: inline;
+}
+
+
+.event-card:nth-child(2) {
+    background-color: #40417A; /* Dark purple for Sangeet */
+}
+
+.event-card:nth-child(2) .event__name {
+    color: #FFBFE2; /* Pink for Sangeet */
+}
+
+.event-card:nth-child(2) .event__number,
+.event-card:nth-child(2) .event__datetime,
+.event-card:nth-child(2) .event__followup {
+    color: var(--paper); /* White text for Sangeet */
+}
+
+.event-card:nth-child(3) {
+    background-color: #FFF5DF; /* Light yellow for Baraat */
+}
+
+.event-card:nth-child(3) .event__name {
+    color: #E46B00; /* Orange for Baraat */
+}
+
+.event-card:nth-child(4) {
+    background-color: #F9F9F9; /* Light gray for Wedding */
+}
+
+.event-card:nth-child(4) .event__name {
+    color: #C41215; /* Red for Wedding */
+}
+
+.event-card:nth-child(5) {
+    background-color: #34060E; /* Dark red for Reception */
+}
+
+.event-card:nth-child(5) .event__name {
+    color: #FAB531; /* Yellow for Reception */
+}
+
+.event-card:nth-child(5) .event__number,
+.event-card:nth-child(5) .event__datetime,
+.event-card:nth-child(5) .event__followup {
+    color: var(--paper); /* White text for Reception */
+}
+
+/* Event-specific elliptical curve colors */
+.event-card:nth-child(1)::after {
+    background: #EDF9D0; 
+}
+
+.event-card:nth-child(2)::after {
+    background: #454680; 
+}
+
+.event-card:nth-child(3)::after {
+    background: #FFEFD4; 
+}
+
+.event-card:nth-child(4)::after {
+    background: #FAF0F0; 
+}
+
+.event-card:nth-child(5)::after {
+    background: #3D0B13; 
+}
+
+/* Relatives Section */
+.relatives-section {
+    padding: 20px 16px;
+    position: relative;
+}
+
+.relatives__title {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 20px 0;
+    text-align: left;
+}
+
+.relatives__content {
+    display: flex;
+    align-items: flex-start;
+}
+
+.relatives__list {
+    flex: 1;
+}
+
+.relative-name {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 12px;
+    color: var(--ink);
+    margin: 0 0 8px 0;
+    line-height: 1.4;
+}
+
+.relatives__illustration {
+    flex-shrink: 0;
+    max-width: 120px;
+    margin-top: -10px;
+    position: relative;
+    z-index: 1;
+}
+
+.couple-image {
+    width: 110%;
+    height: auto;
+    object-fit: contain;
+}
+
+.floor {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20%;
+    background: linear-gradient(to bottom, #FBF8F2 0%, #FBF8F2 24%, rgba(251, 248, 242, 100) 24%, rgba(251, 248, 242, 0) 100%);
+    z-index: -1;
+}
+
+/* RSVP Section */
+.rsvp-section {
+    background-color: var(--paper);
+    padding: 20px 16px;
+}
+
+.rsvp__title {
+    font-family: "DM Serif Display", serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--ink);
+    margin: 0 0 8px 0;
+    text-align: left;
+    padding: 0 16px;
+}
+
+.rsvp__subtitle {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 14px;
+    color: var(--textgray);
+    margin: 0;
+    text-align: left;
+    padding: 0 16px;
+}
+
+.rsvp-container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: var(--bgyellow);
+    border-radius: var(--radius);
+    padding: 24px;
+}
+
+.rsvp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    margin-bottom: 16px;
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-label.error {
+    color: var(--red);
+}
+
+.form-label .required-text {
+    color: var(--red);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.optional-text {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--textgray);
+}
+
+.form-input,
+.form-textarea {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 14px;
+    padding: 12px 16px;
+    border: 1px solid var(--stroke);
+    border-radius: var(--radius);
+    background-color: var(--paper);
+    color: var(--ink);
+    transition: border-color 0.3s ease;
+}
+
+.form-input {
+    height: 48px;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--red);
+}
+
+.form-input.error,
+.number-input.error {
+    border-color: var(--red);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: var(--textgray);
+    opacity: 0.6;
+}
+
+.radio-group {
+    display: flex;
+    gap: 12px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.radio-option input[type="radio"] {
+    display: none;
+}
+
+.radio-custom {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border: 1px solid var(--stroke);
+    border-radius: var(--radius);
+    background-color: var(--paper);
+    transition: all 0.3s ease;
+    min-width: 80px;
+    justify-content: center;
+    position: relative;
+}
+
+.radio-custom::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--stroke);
+    border-radius: 50%;
+    margin-right: 8px;
+    background-color: var(--paper);
+    transition: all 0.3s ease;
+}
+
+.radio-option input[type="radio"]:checked + .radio-custom {
+    border-color: var(--ink);
+    background-color: var(--paper);
+    border-width: 2px;
+    box-shadow: var(--shadow);
+}
+
+.radio-option input[type="radio"]:checked + .radio-custom::before {
+    border-color: var(--ink);
+    background-color: var(--ink);
+    border-width: 4px;
+}
+
+.radio-text {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    transition: color 0.3s ease;
+}
+
+.number-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--stroke);
+    border-radius: var(--radius);
+    background-color: var(--paper);
+    overflow: hidden;
+    gap: 4px;
+    padding: 6px;
+    height: 48px;
+    min-width: 0; /* Allow flex items to shrink */
+}
+
+.number-btn {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid var(--stroke);
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    height: 36px;
+    width: 36px;
+    min-width: 36px; /* Prevent button from shrinking too much */
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.number-btn:hover:not(:disabled) {
+    box-shadow: var(--shadow);
+}
+
+.number-btn:disabled {
+    opacity: 0.5;
+    background-color: var(--bggray);
+    color: var(--textgray);
+}
+
+.number-btn:not(:disabled) {
+    background-color: var(--paper);
+    color: var(--ink);
+}
+
+.number-field {
+    flex: 1;
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 14px;
+    padding: 12px 16px;
+    border: none;
+    background-color: transparent;
+    color: var(--ink);
+    text-align: center;
+    min-width: 0; /* Allow text to truncate */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.number-field:focus {
+    outline: none;
+}
+
+.number-field::placeholder {
+    color: var(--textgray);
+    opacity: 0.6;
+}
+
+/* Hide number input arrows */
+.number-field::-webkit-outer-spin-button,
+.number-field::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.number-field[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+/* Responsive adjustments for smaller devices */
+@media (max-width: 380px) {
+    .number-input {
+        gap: 2px;
+        padding: 4px;
+    }
+    
+    .number-field {
+        padding: 8px 4px; /* Reduce padding to give more space for buttons */
+        font-size: 13px;
+    }
+    
+    .number-btn {
+        padding: 6px 8px; /* Slightly reduce button padding */
+    }
+}
+
+
+.submit-btn {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--paper);
+    background-color: var(--ink);
+    border: none;
+    border-radius: var(--radius);
+    padding: 16px 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 8px;
+}
+
+.submit-btn:hover {
+    background-color: var(--red);
+}
+
+.submit-btn:disabled {
+    background-color: var(--textgray);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Footer Section */
+.footer-section {
+    background-color: var(--paper);
+}
+
+.footer__content {
+    position: relative;
+    top: -72px;
+}
+
+.footer__illustration {
+    width: 100%;
+    overflow: hidden;
+}
+
+.footer-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.contacts-section {
+    background-color: var(--bgyellow);
+    padding: 20px 16px;
+}
+
+.celebration-content {
+    padding: 20px 16px;
+    background-color: var(--paper);
+}
+
+.celebration__headline {
+    font-family: "DM Serif Display", serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--ink);
+    margin: 0 0 0 0;
+    text-align: left;
+    line-height: 1.1;
+}
+
+.celebration__phrase {
+    font-family: "DM Serif Display", serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--red);
+    margin: 8px 0 20px 0;
+    text-align: left;
+    line-height: 1.1;
+}
+
+.celebration__details {
+    margin-bottom: -20px;
+}
+
+.celebration__date {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0;
+    text-align: left;
+}
+
+.celebration__venue {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--textgray);
+    margin: 0;
+    text-align: left;
+}
+
+.contacts__title {
+    font-family: "DM Serif Display", serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--ink);
+    margin: 0 0 12px 0;
+    text-align: left;
+}
+
+.contacts__subheading {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 24px 0 16px 0;
+    text-align: left;
+}
+
+.contacts__subheading-img {
+    height: auto;
+    max-width: 100%;
+    display: block;
+}
+
+.contacts__subtitle {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 14px;
+    color: var(--textgray);
+    margin: 0 0 28px 0;
+    text-align: left;
+    line-height: 1.4;
+}
+
+.contacts__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.contact-card {
+    background-color: var(--paper);
+    border-radius: var(--radius);
+    padding: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.contact__icon {
+    width: 16px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.phone-icon {
+    width: 16px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.contact__info {
+    flex: 1;
+}
+
+.contact__name {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+}
+
+.contact__number {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-size: 14px;
+    color: var(--textgray);
+    font-weight: 400;
+}
+
+.footer__decoration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--red);
+    border-radius: 50%;
+}
+
+.line {
+    width: 12px;
+    height: 1px;
+    background-color: var(--red);
+}
+
+.bottom-spacer {
+    height: 80px;
+    background-color: var(--bgyellow);
+}
+
+.bottom-rectangle {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 72px;
+    background-color: var(--bgyellow);
+    z-index: 1000;
+}
+
+ 
+
