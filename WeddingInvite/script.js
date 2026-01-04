@@ -132,7 +132,7 @@ function clearForm() {
 // LOCAL STORAGE SAVE (NEW)
 // ===============================
 function saveRsvpLocally(data) {
-    fetch("https://script.google.com/macros/s/AKfycbzcY5YRgv2T2GHgdFBa5EiRyesSknx9XtSv4LoNQa6-u0vM4TfZAChtDIAfKTrk08ITMw/exec", {
+    fetch("https://script.google.com/macros/s/AKfycby22IaRmRXyqRTfK6fvUOApXw3MfFfeqELcqSTXvpQ-Qq2lK8vBIOlm7aYcUbkGri60/exec", {
         method: "POST",
         mode: "no-cors",
         headers: {
